@@ -1,5 +1,5 @@
 
-/*step 1 */ 
+/*step 1 - animate */ 
 @keyframes logo{ 
     from{ 
         width: 25px; 
@@ -9,13 +9,11 @@
         width: 475px; 
         opacity: 1; 
     }
-
 }
 
-.logo {
+#logo {
     animation: logo 5s ease-in-out;
 }
-
 
 /* step 2 - default mode  */
 body{ 
@@ -23,8 +21,9 @@ body{
     background: url('../images/concrete_seamless.png'), #f1f1f1; 
 }
 
-/* step 3  */
+/* 720px */
 
+/* step 3  */
 header{ 
     display:flex; 
     flex-direction: column; 
@@ -39,7 +38,6 @@ header{
 }
 
 /* step 5 */ 
-
 .nav_links li a:visited{ 
     color:#0000ED; 
 }
@@ -47,6 +45,7 @@ header{
     color:#50C7C7; 
 }
 
+/* step 6 */
 .card > header{ 
     background-color: #288088;
     border-color: #45ADAD; 
@@ -54,24 +53,22 @@ header{
     border-width: 2px; 
     padding: 20px 0 20px 0; 
     border-radius: 50px 50px 0 0;
-    /* still need to clip background */
 }
 
 
 /* step 7, 8 */ 
 .card{ 
-    display: flex;
-    flex-direction: column; 
-    flex: 0 0 450px;  
-    justify-content: center; 
-    width: 450px; 
-    flex-wrap: wrap; 
+    border-radius: 50px 50px 0 0;
+    flex-basis: 450px;  
 }
 
 .pricing{ 
     display:flex; 
-    align-items: center; 
-    flex-direction: column; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-content: center; 
+    align-items: center ; 
 }
 
 
@@ -82,7 +79,6 @@ header{
     border-style: solid; 
     border-width: 10px; 
     border-color:#50C7C7; 
-    
 }
 
 /* step 10 */ 
@@ -93,9 +89,10 @@ header{
     align-content:center; 
 }
 
-/* 900 px */ 
+/* 900px */ 
 @media screen and (min-width: 900px) { 
 
+/* step 11 */
 header {
     display:flex; 
     flex-direction:row; 
@@ -107,53 +104,90 @@ header {
     flex-direction:row; 
     flex-wrap: wrap; 
     align-content: flex-end;
-}
-
-.pricing { 
-    display:flex; 
-    flex-direction: row;  
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-    /* step 11
-header{ 
-    display:flex; 
-    flex-direction: row; 
     justify-content: space-between; 
 }
 
-.card > header{ 
-   justify-content: center;
-}
-
-.card >  {
-    justify-content: center;
-}
-
-
-
-/* .nav_links{ 
-    display:flex; 
-    align-items: flex-end; 
-} */
-
 /* step 12 */
-
-/* .pricing > .card { 
+.pricing { 
     display:flex; 
-    flex: 275px; 
-    justify-content: center; 
-} */ 
+    flex-direction: row;  
+    flex-wrap: wrap; 
+    align-items: center; 
+}
 
+.card{ 
+    flex-basis: 275px; 
+}
+
+/* step 13 */
+header:not(main header){ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky; 
+    top: 0; 
+    width: 100%; 
+}
+
+}
+
+/* reduced motion */
+
+/* step 14 */
+@media (prefers-reduced-motion){
+    #logo{ 
+        animation: none; 
+    }
+}
+
+
+/*portrait mode print */ 
+
+@media print { 
+
+/* step 15, 16 */
+body{ 
+    font-family: Arial, Helvetica; 
+    background-image: none; 
+}
+
+/* step 17 */
+nav{ 
+    width: 100%; 
+}
+
+.nav_links { 
+    display:flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+}
+
+/* step 18 */
+.pricing { 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+    align-items: flex-end; 
+    justify-content: space-evenly; 
+}
+
+/* step 19 */
+.card  { 
+    border-style: solid; 
+    border-width: 2px; 
+    border-color: #45ADDD; 
+    flex-basis: 325px; 
+}
+
+/* step 20 */
+#gallery, 
+.gallery{ 
+    display:none; 
+}
+
+/* step 21 - thumbs up */
+.card ul li:nth-child(2):after{
+    content: "\1F44D"; 
+}
+
+}
